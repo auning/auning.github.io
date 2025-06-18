@@ -57,8 +57,6 @@
       
         <tags>
             
-            <tag> WSL2 </tag>
-            
             <tag> Linux </tag>
             
             <tag> 磁盘管理 </tag>
@@ -72,6 +70,8 @@
             <tag> fallocate </tag>
             
             <tag> ext4 </tag>
+            
+            <tag> WSL2 </tag>
             
         </tags>
       
@@ -172,6 +172,8 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> WSL2 </tag>
             
             <tag> ROS </tag>
@@ -179,8 +181,6 @@
             <tag> GUI </tag>
             
             <tag> Windows 11 </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
