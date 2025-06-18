@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-06-18T11:12:14.885Z</updated>
+  <updated>2025-06-18T12:16:07.570Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows 11安装WSL2，ROS以及窗口可视化</title>
+    <link href="http://example.com/2025/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
+    <id>http://example.com/2025/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</id>
+    <published>2025-06-18T09:20:00.000Z</published>
+    <updated>2025-06-18T12:16:07.570Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="📋-概述"><a href="#📋-概述" class="headerlink" title="📋 概述"></a>📋 概述</h2><p>目的：在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</p><p>通过本教程，您将学会：</p><ul><li>✅ 在Windows 11上安装和配置WSL2</li><li>✅ 启用WSL2的GUI支持功能</li><li>✅ 在WSL2中安装ROS机器人操作系统</li><li>✅ 运行带有图形界面的ROS应用程序</li></ul><h2 id="🛠️-安装WSL2"><a href="#🛠️-安装WSL2" class="headerlink" title="🛠️ 安装WSL2"></a>🛠️ 安装WSL2</h2><h3 id="步骤1：启用WSL功能"><a href="#步骤1：启用WSL功能" class="headerlink" title="步骤1：启用WSL功能"></a>步骤1：启用WSL功能</h3><p>请遵循微软官方的安装说明，<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install">WSL2安装</a>。</p><p><strong>重要提醒</strong>：第四步的内核更新包非常重要，如果缺少，将无法正常使用图形化界面。</p><h3 id="步骤2：升级WSL以支持GUI"><a href="#步骤2：升级WSL以支持GUI" class="headerlink" title="步骤2：升级WSL以支持GUI"></a>步骤2：升级WSL以支持GUI</h3><p>完成上面的安装，并且设置好账户和密码之后，需要对WSL功能进行升级，以便使用GUI界面。</p><p>以管理员身份打开PowerShell（不知道怎么操作，请百度），然后输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure><p>然后重启WSL使之生效：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure><p>再重新打开Ubuntu子系统就可以使用图形界面了。</p><h2 id="🤖-安装ROS"><a href="#🤖-安装ROS" class="headerlink" title="🤖 安装ROS"></a>🤖 安装ROS</h2><h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>ROS的安装请移步<a href="http://wiki.ros.org/ROS/Installation">ROS官网安装说明</a>，在WSL2中的安装过程和在Ubuntu主机上安装没有区别。</p><h3 id="推荐版本"><a href="#推荐版本" class="headerlink" title="推荐版本"></a>推荐版本</h3><ul><li><strong>ROS Noetic</strong>（适用于Ubuntu 20.04）</li><li><strong>ROS Melodic</strong>（适用于Ubuntu 18.04）</li></ul><h2 id="🚀-运行和测试"><a href="#🚀-运行和测试" class="headerlink" title="🚀 运行和测试"></a>🚀 运行和测试</h2><h3 id="启动WSL2"><a href="#启动WSL2" class="headerlink" title="启动WSL2"></a>启动WSL2</h3><p>打开Win11自带的终端，如下图所示，选择你想要开启的Ubuntu系统版本，点击等待片刻，即可开机。</p><p><img src="/images/terminal.png" alt="终端"></p><h3 id="测试ROS功能"><a href="#测试ROS功能" class="headerlink" title="测试ROS功能"></a>测试ROS功能</h3><h4 id="1-启动ROS核心"><a href="#1-启动ROS核心" class="headerlink" title="1. 启动ROS核心"></a>1. 启动ROS核心</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br></pre></td></tr></table></figure><h4 id="2-测试图形界面"><a href="#2-测试图形界面" class="headerlink" title="2. 测试图形界面"></a>2. 测试图形界面</h4><p>在新的终端窗口中运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rviz</span><br></pre></td></tr></table></figure><h3 id="验证GUI功能"><a href="#验证GUI功能" class="headerlink" title="验证GUI功能"></a>验证GUI功能</h3><p>如果一切配置正确，您应该能够看到rviz的图形界面正常显示。这样你就可以像在Ubuntu主机上一样使用ROS了。</p><h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><p>通过本教程，您已经成功：</p><ol><li>✅ 在Windows 11上安装了WSL2</li><li>✅ 启用了WSL2的GUI支持</li><li>✅ 安装了ROS机器人操作系统</li><li>✅ 验证了图形界面应用程序的运行</li></ol><p>现在您可以在Windows环境下享受完整的Linux ROS开发体验了！</p>]]></content>
+    
+    
+    <summary type="html">在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</summary>
+    
+    
+    
+    <category term="系统" scheme="http://example.com/categories/%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="开发环境" scheme="http://example.com/categories/%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    
+    
+    <category term="WSL2" scheme="http://example.com/tags/WSL2/"/>
+    
+    <category term="ROS" scheme="http://example.com/tags/ROS/"/>
+    
+    <category term="GUI" scheme="http://example.com/tags/GUI/"/>
+    
+    <category term="Windows 11" scheme="http://example.com/tags/Windows-11/"/>
+    
+    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker部署TensorFlow Lite训练大模型实践指南</title>
@@ -66,6 +97,8 @@
     <category term="系统管理" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"/>
     
     
+    <category term="WSL2" scheme="http://example.com/tags/WSL2/"/>
+    
     <category term="Linux" scheme="http://example.com/tags/Linux/"/>
     
     <category term="磁盘管理" scheme="http://example.com/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
@@ -79,8 +112,6 @@
     <category term="fallocate" scheme="http://example.com/tags/fallocate/"/>
     
     <category term="ext4" scheme="http://example.com/tags/ext4/"/>
-    
-    <category term="WSL2" scheme="http://example.com/tags/WSL2/"/>
     
   </entry>
   
@@ -147,37 +178,6 @@
     <category term="Node.js" scheme="http://example.com/tags/Node-js/"/>
     
     <category term="静态网站" scheme="http://example.com/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows 11安装WSL2，ROS以及窗口可视化</title>
-    <link href="http://example.com/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
-    <id>http://example.com/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</id>
-    <published>2024-06-18T09:20:00.000Z</published>
-    <updated>2025-06-18T10:54:08.389Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="📋-概述"><a href="#📋-概述" class="headerlink" title="📋 概述"></a>📋 概述</h2><p>目的：在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</p><p>通过本教程，您将学会：</p><ul><li>✅ 在Windows 11上安装和配置WSL2</li><li>✅ 启用WSL2的GUI支持功能</li><li>✅ 在WSL2中安装ROS机器人操作系统</li><li>✅ 运行带有图形界面的ROS应用程序</li></ul><h2 id="🛠️-安装WSL2"><a href="#🛠️-安装WSL2" class="headerlink" title="🛠️ 安装WSL2"></a>🛠️ 安装WSL2</h2><h3 id="步骤1：启用WSL功能"><a href="#步骤1：启用WSL功能" class="headerlink" title="步骤1：启用WSL功能"></a>步骤1：启用WSL功能</h3><p>请遵循微软官方的安装说明，<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install">WSL2安装</a>。</p><p><strong>重要提醒</strong>：第四步的内核更新包非常重要，如果缺少，将无法正常使用图形化界面。</p><h3 id="步骤2：升级WSL以支持GUI"><a href="#步骤2：升级WSL以支持GUI" class="headerlink" title="步骤2：升级WSL以支持GUI"></a>步骤2：升级WSL以支持GUI</h3><p>完成上面的安装，并且设置好账户和密码之后，需要对WSL功能进行升级，以便使用GUI界面。</p><p>以管理员身份打开PowerShell（不知道怎么操作，请百度），然后输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure><p>然后重启WSL使之生效：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure><p>再重新打开Ubuntu子系统就可以使用图形界面了。</p><h2 id="🤖-安装ROS"><a href="#🤖-安装ROS" class="headerlink" title="🤖 安装ROS"></a>🤖 安装ROS</h2><h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>ROS的安装请移步<a href="http://wiki.ros.org/ROS/Installation">ROS官网安装说明</a>，在WSL2中的安装过程和在Ubuntu主机上安装没有区别。</p><h3 id="推荐版本"><a href="#推荐版本" class="headerlink" title="推荐版本"></a>推荐版本</h3><ul><li><strong>ROS Noetic</strong>（适用于Ubuntu 20.04）</li><li><strong>ROS Melodic</strong>（适用于Ubuntu 18.04）</li></ul><h2 id="🚀-运行和测试"><a href="#🚀-运行和测试" class="headerlink" title="🚀 运行和测试"></a>🚀 运行和测试</h2><h3 id="启动WSL2"><a href="#启动WSL2" class="headerlink" title="启动WSL2"></a>启动WSL2</h3><p>打开Win11自带的终端，如下图所示，选择你想要开启的Ubuntu系统版本，点击等待片刻，即可开机。</p><p><img src="/images/terminal.png" alt="终端"></p><h3 id="测试ROS功能"><a href="#测试ROS功能" class="headerlink" title="测试ROS功能"></a>测试ROS功能</h3><h4 id="1-启动ROS核心"><a href="#1-启动ROS核心" class="headerlink" title="1. 启动ROS核心"></a>1. 启动ROS核心</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br></pre></td></tr></table></figure><h4 id="2-测试图形界面"><a href="#2-测试图形界面" class="headerlink" title="2. 测试图形界面"></a>2. 测试图形界面</h4><p>在新的终端窗口中运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rviz</span><br></pre></td></tr></table></figure><h3 id="验证GUI功能"><a href="#验证GUI功能" class="headerlink" title="验证GUI功能"></a>验证GUI功能</h3><p>如果一切配置正确，您应该能够看到rviz的图形界面正常显示。这样你就可以像在Ubuntu主机上一样使用ROS了。</p><h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><p>通过本教程，您已经成功：</p><ol><li>✅ 在Windows 11上安装了WSL2</li><li>✅ 启用了WSL2的GUI支持</li><li>✅ 安装了ROS机器人操作系统</li><li>✅ 验证了图形界面应用程序的运行</li></ol><p>现在您可以在Windows环境下享受完整的Linux ROS开发体验了！</p>]]></content>
-    
-    
-    <summary type="html">在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</summary>
-    
-    
-    
-    <category term="系统" scheme="http://example.com/categories/%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="开发环境" scheme="http://example.com/categories/%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
-    
-    
-    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
-    
-    <category term="WSL2" scheme="http://example.com/tags/WSL2/"/>
-    
-    <category term="ROS" scheme="http://example.com/tags/ROS/"/>
-    
-    <category term="GUI" scheme="http://example.com/tags/GUI/"/>
-    
-    <category term="Windows 11" scheme="http://example.com/tags/Windows-11/"/>
     
   </entry>
   
