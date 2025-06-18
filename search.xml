@@ -152,6 +152,39 @@
     </entry>
     
     
+    
+    <entry>
+      <title>Windows 11安装WSL2，ROS以及窗口可视化</title>
+      <link href="/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
+      <url>/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[<p>目的：在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</p><h2 id="安装WSL2"><a href="#安装WSL2" class="headerlink" title="安装WSL2"></a>安装WSL2</h2><p>请遵循微软官方的安装说明，<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install">WSL2安装</a>。</p><p>请注意，第四步的内核更新包非常重要，如果缺少，将无法正常使用图形化界面。</p><p>完成上面的安装，并且设置好账户和密码之后，需要对WSL功能进行升级，以便使用GUI界面。</p><p>以管理员身份打开PowerShell（不知道怎么操作，请百度），然后输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure><p>然后重启WSL使之生效：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure><p>再重新打开Ubuntu子系统就可以使用图形界面了。</p><h2 id="安装ROS"><a href="#安装ROS" class="headerlink" title="安装ROS"></a>安装ROS</h2><p>ROS，请移步<a href="http://wiki.ros.org/ROS/Installation">ROS官网安装说明</a>，和在Ubuntu主机上安装没有区别。</p><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>打开Win11自带的终端，如下图所示，选择你想要开启的Ubuntu系统版本，点击等待片刻，即可开机。</p><p><img src="https://www.gongsunqi.xyz/posts/451c48f3/terminal.png" alt="终端"></p><p>运行ROS</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br></pre></td></tr></table></figure><p>运行rviz</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rviz</span><br></pre></td></tr></table></figure><p>这样你就可以像在Ubuntu主机上一样使用ROS了。 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> WSL2 </tag>
+            
+            <tag> ROS </tag>
+            
+            <tag> GUI </tag>
+            
+            <tag> Windows 11 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
