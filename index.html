@@ -71,93 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Windows11-WSL2-ROS-GUI-安装指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="article-date">
-  <time class="dt-published" datetime="2024-06-18T09:20:00.000Z" itemprop="datePublished">2024-06-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a>►<a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">Windows 11安装WSL2，ROS以及窗口可视化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="📋-概述"><a href="#📋-概述" class="headerlink" title="📋 概述"></a>📋 概述</h2><p>目的：在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</p>
-<p>通过本教程，您将学会：</p>
-<ul>
-<li>✅ 在Windows 11上安装和配置WSL2</li>
-<li>✅ 启用WSL2的GUI支持功能</li>
-<li>✅ 在WSL2中安装ROS机器人操作系统</li>
-<li>✅ 运行带有图形界面的ROS应用程序</li>
-</ul>
-<h2 id="🛠️-安装WSL2"><a href="#🛠️-安装WSL2" class="headerlink" title="🛠️ 安装WSL2"></a>🛠️ 安装WSL2</h2><h3 id="步骤1：启用WSL功能"><a href="#步骤1：启用WSL功能" class="headerlink" title="步骤1：启用WSL功能"></a>步骤1：启用WSL功能</h3><p>请遵循微软官方的安装说明，<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install">WSL2安装</a>。</p>
-<p><strong>重要提醒</strong>：第四步的内核更新包非常重要，如果缺少，将无法正常使用图形化界面。</p>
-<h3 id="步骤2：升级WSL以支持GUI"><a href="#步骤2：升级WSL以支持GUI" class="headerlink" title="步骤2：升级WSL以支持GUI"></a>步骤2：升级WSL以支持GUI</h3><p>完成上面的安装，并且设置好账户和密码之后，需要对WSL功能进行升级，以便使用GUI界面。</p>
-<p>以管理员身份打开PowerShell（不知道怎么操作，请百度），然后输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
-
-<p>然后重启WSL使之生效：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
-
-<p>再重新打开Ubuntu子系统就可以使用图形界面了。</p>
-<h2 id="🤖-安装ROS"><a href="#🤖-安装ROS" class="headerlink" title="🤖 安装ROS"></a>🤖 安装ROS</h2><h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>ROS的安装请移步<a target="_blank" rel="noopener" href="http://wiki.ros.org/ROS/Installation">ROS官网安装说明</a>，在WSL2中的安装过程和在Ubuntu主机上安装没有区别。</p>
-<h3 id="推荐版本"><a href="#推荐版本" class="headerlink" title="推荐版本"></a>推荐版本</h3><ul>
-<li><strong>ROS Noetic</strong>（适用于Ubuntu 20.04）</li>
-<li><strong>ROS Melodic</strong>（适用于Ubuntu 18.04）</li>
-</ul>
-<h2 id="🚀-运行和测试"><a href="#🚀-运行和测试" class="headerlink" title="🚀 运行和测试"></a>🚀 运行和测试</h2><h3 id="启动WSL2"><a href="#启动WSL2" class="headerlink" title="启动WSL2"></a>启动WSL2</h3><p>打开Win11自带的终端，如下图所示，选择你想要开启的Ubuntu系统版本，点击等待片刻，即可开机。</p>
-<p><img src="/images/terminal.png" alt="终端"></p>
-<h3 id="测试ROS功能"><a href="#测试ROS功能" class="headerlink" title="测试ROS功能"></a>测试ROS功能</h3><h4 id="1-启动ROS核心"><a href="#1-启动ROS核心" class="headerlink" title="1. 启动ROS核心"></a>1. 启动ROS核心</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-测试图形界面"><a href="#2-测试图形界面" class="headerlink" title="2. 测试图形界面"></a>2. 测试图形界面</h4><p>在新的终端窗口中运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rviz</span><br></pre></td></tr></table></figure>
-
-<h3 id="验证GUI功能"><a href="#验证GUI功能" class="headerlink" title="验证GUI功能"></a>验证GUI功能</h3><p>如果一切配置正确，您应该能够看到rviz的图形界面正常显示。这样你就可以像在Ubuntu主机上一样使用ROS了。</p>
-<h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><p>通过本教程，您已经成功：</p>
-<ol>
-<li>✅ 在Windows 11上安装了WSL2</li>
-<li>✅ 启用了WSL2的GUI支持</li>
-<li>✅ 安装了ROS机器人操作系统</li>
-<li>✅ 验证了图形界面应用程序的运行</li>
-</ol>
-<p>现在您可以在Windows环境下享受完整的Linux ROS开发体验了！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" data-id="cmc1uq2xy0005nrv4bfszcu52" data-title="Windows 11安装WSL2，ROS以及窗口可视化" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-11/" rel="tag">Windows 11</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-Docker部署tflite训练大模型实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/" class="article-date">
-  <time class="dt-published" datetime="2024-06-16T09:58:18.000Z" itemprop="datePublished">2024-06-16</time>
+    <a href="/2025/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/" class="article-date">
+  <time class="dt-published" datetime="2025-06-16T09:58:18.000Z" itemprop="datePublished">2025-06-16</time>
 </a>
     
   <div class="article-category">
@@ -172,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/">Docker部署TensorFlow Lite训练大模型实践指南</a>
+      <a class="p-name article-title" href="/2025/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/">Docker部署TensorFlow Lite训练大模型实践指南</a>
     </h1>
   
 
@@ -244,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/" data-id="cmc1uq2xr0000nrv4drxa1s62" data-title="Docker部署TensorFlow Lite训练大模型实践指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/" data-id="cmc1ut3kk0000anv4ggq645d4" data-title="Docker部署TensorFlow Lite训练大模型实践指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -260,8 +177,8 @@
   
     <article id="post-Linux磁盘镜像创建方法对比-dd-vs-truncate-vs-fallocate" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/" class="article-date">
-  <time class="dt-published" datetime="2024-01-16T08:00:00.000Z" itemprop="datePublished">2024-01-16</time>
+    <a href="/2025/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/" class="article-date">
+  <time class="dt-published" datetime="2025-01-16T08:00:00.000Z" itemprop="datePublished">2025-01-16</time>
 </a>
     
   <div class="article-category">
@@ -276,7 +193,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/">Linux磁盘镜像创建方法对比：dd vs truncate vs fallocate</a>
+      <a class="p-name article-title" href="/2025/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/">Linux磁盘镜像创建方法对比：dd vs truncate vs fallocate</a>
     </h1>
   
 
@@ -511,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/" data-id="cmc1uq2xx0004nrv48as5etus" data-title="Linux磁盘镜像创建方法对比：dd vs truncate vs fallocate" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/" data-id="cmc1ut3kp0004anv495vzcewi" data-title="Linux磁盘镜像创建方法对比：dd vs truncate vs fallocate" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -527,8 +444,8 @@
   
     <article id="post-Windows11-WSL2-Ubuntu-深度学习环境搭建指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="article-date">
-  <time class="dt-published" datetime="2024-01-16T06:30:00.000Z" itemprop="datePublished">2024-01-16</time>
+    <a href="/2025/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2025-01-16T06:30:00.000Z" itemprop="datePublished">2025-01-16</time>
 </a>
     
   <div class="article-category">
@@ -543,7 +460,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/">Windows11 + WSL2 + Ubuntu + PyCharm + Conda 深度学习环境搭建完整指南</a>
+      <a class="p-name article-title" href="/2025/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/">Windows11 + WSL2 + Ubuntu + PyCharm + Conda 深度学习环境搭建完整指南</a>
     </h1>
   
 
@@ -702,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" data-id="cmc1uq2xz0006nrv49qved0us" data-title="Windows11 + WSL2 + Ubuntu + PyCharm + Conda 深度学习环境搭建完整指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" data-id="cmc1ut3kq0006anv4dvxleiro" data-title="Windows11 + WSL2 + Ubuntu + PyCharm + Conda 深度学习环境搭建完整指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -718,8 +635,8 @@
   
     <article id="post-Hexo博客搭建完整指南：从零到部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/" class="article-date">
-  <time class="dt-published" datetime="2024-01-16T02:00:00.000Z" itemprop="datePublished">2024-01-16</time>
+    <a href="/2025/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time class="dt-published" datetime="2025-01-16T02:00:00.000Z" itemprop="datePublished">2025-01-16</time>
 </a>
     
   <div class="article-category">
@@ -734,7 +651,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/">Hexo博客搭建完整指南：从零到部署</a>
+      <a class="p-name article-title" href="/2025/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/">Hexo博客搭建完整指南：从零到部署</a>
     </h1>
   
 
@@ -969,11 +886,94 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/" data-id="cmc1uq2xu0001nrv4dye8djcm" data-title="Hexo博客搭建完整指南：从零到部署" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/" data-id="cmc1ut3kn0001anv4441w5ew7" data-title="Hexo博客搭建完整指南：从零到部署" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" rel="tag">静态网站</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Windows11-WSL2-ROS-GUI-安装指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2024-06-18T09:20:00.000Z" itemprop="datePublished">2024-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F/">系统</a>►<a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">Windows 11安装WSL2，ROS以及窗口可视化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="📋-概述"><a href="#📋-概述" class="headerlink" title="📋 概述"></a>📋 概述</h2><p>目的：在Windows系统上安装Ubuntu系统、安装Linux版本的ROS，并且可以使用Ubuntu系统中安装软件的图形界面。</p>
+<p>通过本教程，您将学会：</p>
+<ul>
+<li>✅ 在Windows 11上安装和配置WSL2</li>
+<li>✅ 启用WSL2的GUI支持功能</li>
+<li>✅ 在WSL2中安装ROS机器人操作系统</li>
+<li>✅ 运行带有图形界面的ROS应用程序</li>
+</ul>
+<h2 id="🛠️-安装WSL2"><a href="#🛠️-安装WSL2" class="headerlink" title="🛠️ 安装WSL2"></a>🛠️ 安装WSL2</h2><h3 id="步骤1：启用WSL功能"><a href="#步骤1：启用WSL功能" class="headerlink" title="步骤1：启用WSL功能"></a>步骤1：启用WSL功能</h3><p>请遵循微软官方的安装说明，<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install">WSL2安装</a>。</p>
+<p><strong>重要提醒</strong>：第四步的内核更新包非常重要，如果缺少，将无法正常使用图形化界面。</p>
+<h3 id="步骤2：升级WSL以支持GUI"><a href="#步骤2：升级WSL以支持GUI" class="headerlink" title="步骤2：升级WSL以支持GUI"></a>步骤2：升级WSL以支持GUI</h3><p>完成上面的安装，并且设置好账户和密码之后，需要对WSL功能进行升级，以便使用GUI界面。</p>
+<p>以管理员身份打开PowerShell（不知道怎么操作，请百度），然后输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
+
+<p>然后重启WSL使之生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure>
+
+<p>再重新打开Ubuntu子系统就可以使用图形界面了。</p>
+<h2 id="🤖-安装ROS"><a href="#🤖-安装ROS" class="headerlink" title="🤖 安装ROS"></a>🤖 安装ROS</h2><h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>ROS的安装请移步<a target="_blank" rel="noopener" href="http://wiki.ros.org/ROS/Installation">ROS官网安装说明</a>，在WSL2中的安装过程和在Ubuntu主机上安装没有区别。</p>
+<h3 id="推荐版本"><a href="#推荐版本" class="headerlink" title="推荐版本"></a>推荐版本</h3><ul>
+<li><strong>ROS Noetic</strong>（适用于Ubuntu 20.04）</li>
+<li><strong>ROS Melodic</strong>（适用于Ubuntu 18.04）</li>
+</ul>
+<h2 id="🚀-运行和测试"><a href="#🚀-运行和测试" class="headerlink" title="🚀 运行和测试"></a>🚀 运行和测试</h2><h3 id="启动WSL2"><a href="#启动WSL2" class="headerlink" title="启动WSL2"></a>启动WSL2</h3><p>打开Win11自带的终端，如下图所示，选择你想要开启的Ubuntu系统版本，点击等待片刻，即可开机。</p>
+<p><img src="/images/terminal.png" alt="终端"></p>
+<h3 id="测试ROS功能"><a href="#测试ROS功能" class="headerlink" title="测试ROS功能"></a>测试ROS功能</h3><h4 id="1-启动ROS核心"><a href="#1-启动ROS核心" class="headerlink" title="1. 启动ROS核心"></a>1. 启动ROS核心</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-测试图形界面"><a href="#2-测试图形界面" class="headerlink" title="2. 测试图形界面"></a>2. 测试图形界面</h4><p>在新的终端窗口中运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rviz</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证GUI功能"><a href="#验证GUI功能" class="headerlink" title="验证GUI功能"></a>验证GUI功能</h3><p>如果一切配置正确，您应该能够看到rviz的图形界面正常显示。这样你就可以像在Ubuntu主机上一样使用ROS了。</p>
+<h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><p>通过本教程，您已经成功：</p>
+<ol>
+<li>✅ 在Windows 11上安装了WSL2</li>
+<li>✅ 启用了WSL2的GUI支持</li>
+<li>✅ 安装了ROS机器人操作系统</li>
+<li>✅ 验证了图形界面应用程序的运行</li>
+</ol>
+<p>现在您可以在Windows环境下享受完整的Linux ROS开发体验了！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" data-id="cmc1ut3kq0005anv4au3de8o8" data-title="Windows 11安装WSL2，ROS以及窗口可视化" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL2/" rel="tag">WSL2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-11/" rel="tag">Windows 11</a></li></ul>
 
     </footer>
   </div>
@@ -1022,7 +1022,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li></ul>
     </div>
   </div>
 
@@ -1035,23 +1035,23 @@
       <ul>
         
           <li>
+            <a href="/2025/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/">Docker部署TensorFlow Lite训练大模型实践指南</a>
+          </li>
+        
+          <li>
+            <a href="/2025/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/">Linux磁盘镜像创建方法对比：dd vs truncate vs fallocate</a>
+          </li>
+        
+          <li>
+            <a href="/2025/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/">Windows11 + WSL2 + Ubuntu + PyCharm + Conda 深度学习环境搭建完整指南</a>
+          </li>
+        
+          <li>
+            <a href="/2025/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/">Hexo博客搭建完整指南：从零到部署</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/18/Windows11-WSL2-ROS-GUI-%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">Windows 11安装WSL2，ROS以及窗口可视化</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/16/Docker%E9%83%A8%E7%BD%B2tflite%E8%AE%AD%E7%BB%83%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E8%B7%B5/">Docker部署TensorFlow Lite训练大模型实践指南</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/16/Linux%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94-dd-vs-truncate-vs-fallocate/">Linux磁盘镜像创建方法对比：dd vs truncate vs fallocate</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/16/Windows11-WSL2-Ubuntu-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/">Windows11 + WSL2 + Ubuntu + PyCharm + Conda 深度学习环境搭建完整指南</a>
-          </li>
-        
-          <li>
-            <a href="/2024/01/16/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%88%B0%E9%83%A8%E7%BD%B2/">Hexo博客搭建完整指南：从零到部署</a>
           </li>
         
       </ul>
